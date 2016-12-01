@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form</title>
+	 <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+
+</head>
+<body>
+<div id="application"></div>
+<script type="text/babel">
+
+
+	var Form = React.createClass({
+	render:function(){
+	return(
+		
+		<div>
+			<div>{this.props.Name} <input type="text" name="Name" placeholder="Name"/></div>
+			
+			<div>{this.props.Fathername}<input type="text" name=""/></div>
+			
+			<div>{this.props.Dob}<input type="number" name=""/></div>
+
+
+		</div>);} });
+
+
+	var Button = React.createClass({
+	render:function(){
+	return(
+	<div>
+		<button>Submit</button>
+		<button>Cancel</button>
+	</div>
+	)
+	}
+	});
+
+
+	ReactDOM.render(<div>
+					<Form Name="Name" Fathername="FatherName" Dob="DOB"/>
+					
+					<Button/>
+					</div>,document.getElementById('application'));
+</script>
+
+
+
+</body>
+</html>

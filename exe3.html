@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+    <style type="text/css">
+    	.link{
+    		text-align: center;
+    		background: grey;
+    		color: red;
+    		width: 100px;
+    		height: 100px;
+
+    	}
+    </style>
+</head>
+
+<body>
+    <div id="example3"></div>
+    <script type="text/babel">
+        ReactDOM.render(
+        <div className="link">
+            <p>This Is the Link<br/>
+                <a href="file:///home/parthi/Desktop/react/exe1.html">Hi</a>
+            </p>	
+        </div>,document.getElementById('example3'));
+    </script>
+</body>
+
+</html>

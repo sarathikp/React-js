@@ -1,0 +1,94 @@
+<html>
+<head>
+	<title></title>
+	<script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+    <style type="text/css">
+    	.namefield{
+    		margin-left: 3em;
+    		outline: none;
+    	}
+    	.namefield:focus{
+    		border:2px solid green;
+    	}
+    	.submitbtn{
+    		margin-left: 7em;
+    	}
+		.submitbtn:
+		
+    	.cancelbtn{
+    		margin-left: 13em;
+    		margin-top:-2.8em;
+    	}
+    </style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+	var Box = React.createClass({
+	getInitialState:function(){
+	return(name:'text')
+	},
+	handleChange:function(e){
+	this.setState:({name:e.target.name})
+	}
+
+	render:function(){
+	return(<div>
+		<label>
+			<form> {this.props.name}
+				<input {...this.props} onChange={this.handleChange}/><br/>
+			</form>
+		</label>
+
+
+	</div>)
+	}
+	});
+	var Btn = React.createClass({
+	getInitialState:function(){
+	return{}
+	},
+	oncliked:function(){
+	alert("check");
+	}
+
+	render:function(){
+
+
+	return(<div>
+		<input {...this.props} onClick={this.oncliked}/>		
+	</div>)
+	}
+	});
+
+	var Main = React.createClass({
+	render:function(){
+	return(<div>
+		<Box type="text" defaultValue="" name="Name"  className="namefield"/>
+		<Btn type="submit" value="submit" name="" className="submitbtn"/>
+		<Btn type="button" value="cancel" name="" className="cancelbtn"/>
+	</div>)
+	}
+	});
+
+	ReactDOM.render(<Main/>,document.getElementById('root'))
+</script>
+
+</body>
+</html>
+
+
+
+this.state={
+	
+	color:  red,
+};
+
+
+onClick(){
+	this.setState(color: grenen);
+}
+
+

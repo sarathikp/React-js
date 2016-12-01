@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Changing the states </title>
+	<script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+	</head>
+<body>
+<div id="container"></div>
+
+<script type="text/babel">
+	 
+	var Main = React.createClass({
+		 getInitialState:function() {
+		 	return{text:""}
+		 },
+		handleSubmit:function(e){
+			e.preventDefault()
+					console.log(this.state.text);
+					
+		},
+
+		 handleChangenode:function(e){
+		 	var text= e.target.value;
+		 	console.log("text");
+		 	this.setState({text: text});
+		 },
+
+		 onSubmit:function(){
+		 	alert('click');		 },
+		render:function(){
+			return(<div>
+				<form onSubmit={this.handleSubmit}>
+				<input type="text" name="Name" onChange={this.handleChangenode}/>
+				<button onClick={this.onSubmit.bind(null,this)}>Submit</button></form></div>)
+		} 
+	});
+		
+
+
+
+
+	var Form = React.createClass({
+		render:function(){
+			return(<div>
+				<Main/>
+			</div>)
+		}
+	});
+ReactDOM.render(
+  <Form />,
+  document.getElementById('container')
+);
+
+</script>
+
+</body>
+</html>

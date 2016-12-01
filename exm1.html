@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>	
+    <style type="text/css">
+    	.border{
+    		border: 2px solid red;
+    		width: 150px;
+    		text-align: center;
+    	}
+    	.border{
+    		background: black;
+    		color: white;
+    		}
+    		.sarathi{
+    			background-color: blue;
+    		}
+    </style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+	var Name = React.createClass({
+	getInitialState: function() {
+    return {click:0};
+  },
+     sarathi:function(e){
+       
+       this.setState({click:e});
+     },
+    render:function(){
+    let box='',i=0;
+   if(this.state.click>0){
+
+box="border sarathi";
+console.log(box);
+   }
+   else{
+   i=1;
+   box="border";
+
+   }
+   
+	return(<div className={box} onClick={this.sarathi.bind(this,i)}>
+			{this.props.name}	
+	</div>);
+	}
+	 });
+	
+
+	var Main = React.createClass({
+	render:function(){
+	return(<div>
+		<Name  name="partha" />
+		<Name  name="mari"/>
+	</div>)
+	}
+	});
+
+	ReactDOM.render(<Main/>,document.getElementById('root'));
+</script>
+</body>
+</html>

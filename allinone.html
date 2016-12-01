@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>All IN ONE</title>
+	<script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+    <style type="text/css">
+    .movies{
+    	float: left;
+    	border: 2px dotted green;
+    	padding-right: 5px
+    	
+	    }	
+	 .title{
+	 	margin-left: 5px;
+	 	
+	 }
+	 .commoncontianer{
+	 	margin-left:5em;
+	 	float: left;
+	 	color: blue;
+	 }
+	 .checkbox{
+	 	float: left;
+	 	margin-left: 5em;
+	 	color: green;
+	 }
+	 .gendercheck{
+	 	margin-left: 5em;
+	 	color: red;
+	 }
+	 .text{
+	 	color: orange;
+	 }
+	 .textediter{
+	 	margin-top:8em;
+	 	
+	 }
+    </style>
+    
+	
+</head>
+<body>
+<div id="container"></div>
+<script type="text/babel">
+var Name = React.createClass({
+	render:function(){
+	return(<div>
+			<h2>PArTha</h2>
+			<p>MOvies List</p>
+
+</div>);
+	}
+	});
+
+
+var Movies =React.createClass({
+	render:function(){
+	return(<div className="movies">
+				<h2 className="title">Movie Name: {this.props.movie}</h2>
+				<h3 className="title">Language: {this.props.language}</h3>
+			</div>)
+	}
+});
+
+var Button = React.createClass({
+ 	edit:function(){
+ 	alert("editing");
+ 	},
+ 	remove:function(){
+ 	alert("removing");
+ 	},
+ 	render:function(){
+	return(<div className="commoncontianer">
+		<div className= "commontext">{this.props.children}</div>
+		<button className="editbutton" onClick={this.edit}>Edit</button>
+		<button className="removebutton" onClick={this.remove}>Remove</button>
+	</div>);
+	}
+	});
+
+var Checkbox = React.createClass({
+	
+	getInitialState:function(){
+	return{checked:true}
+
+	},
+	
+	handleChecked:function(){
+	this.setState({checked:!this.state.checked})
+	},
+	
+	render:function(){
+	
+	var msg;
+	if(this.state.checked){
+	msg = 'checked'
+	}
+	else{
+	msg= 'unchecked'
+	}
+
+	return(<div className="checkbox">
+		<input type="checkbox" onChange={this.handleChecked} defaultChecked={this.state.checked}/>
+		<span>Checking the {msg}</span>
+	</div>);
+	}
+});
+
+
+var Gendercheck = React.createClass({
+	
+	getInitialState:function(){
+	return {value:"male"}
+	},
+	male:function(){
+	this.setState({value:"male"})
+	},
+	female:function(){
+	this.setState({vale:"female"})
+	},
+
+	render:function(){
+	return(
+	<div className="gendercheck">
+		<input type="radio" name="gender" onChange={this.male} defaultChecked/>Male
+		<input type="radio" name="gender" onChange={this.female} />Female
+	</div>)
+	}
+});
+
+
+var Texteditor = React.createClass({
+		
+		edit:function(){
+		alert('Editor');
+		},
+		remove:function(){
+		alert('Remover');
+		},
+		save:function(){
+		alert('save');
+		},
+
+	render:function(){
+	return(<div className="textediter"> 
+			<p>ADDING STATE FOR THE COMPONENTS</p>
+		<div className="text">{this.props.children}</div>
+		<button className="editbutton" onClick={this.edit}>Edit</button>
+		<button className="removebutton" onClick={this.remove}>Remove</button>
+	</div>)
+	}
+});
+
+var Main = React.createClass({
+	render:function(){
+	return(<div>
+	<div><Name />
+	<Movies movie='123' language='tamil'/>
+	<Movies movie='friends' language='telugu'/>
+	<Movies movie='mi5' language='english'/>
+	</div>
+	<div>
+	<Button>HI U can Change Me </Button>
+	</div>
+	<Checkbox/>
+	<Gendercheck/><Texteditor> why</Texteditor>
+				  <Texteditor> what</Texteditor>
+				  <Texteditor> how </Texteditor></div>)
+	}
+});
+	ReactDOM.render(<Main/>,document.getElementById('container'));
+</script>
+</body>
+</html>

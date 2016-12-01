@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+    <style type="text/css">
+    div{
+    	padding-left: 25px;
+
+    }
+    form{
+    	border:2px solid red;
+    	width: 200px;
+        }
+	button{
+		width: 80px;
+		margin-top: 8px;
+		margin-left: 5px;
+		margin-bottom: 5px;
+	}
+	input{
+		margin-left: 5px;
+		margin-top: 5px;
+	}
+
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/babel">
+	var RegForm = React.createClass({
+	render:function(){
+	return(<div><form>NAME <input type="text"/><br/>
+					  FATHER NAME <input type="text"/><br/>
+					  AGE <input type="number"/><br/>
+					  ADDRESS<input type="text"/><br/>
+					  <button>Submit</button>
+					  <button>Cancel</button>
+					  </form></div>)
+	}
+	});ReactDOM.render(<RegForm/>,document.getElementById('container'));
+</script>
+</body>
+</html>

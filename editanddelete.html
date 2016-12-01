@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit and Delete</title>
+<script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+
+</head>
+<body>
+<div id="container"></div>
+<script type="text/babel">
+	var Comment = React.createClass(
+{	getInitialState:function(){	
+return{editing:false};
+	},
+	edit:function(){
+	this.setState({editing:true});
+	},
+	remove:function(){
+	alert('removing');
+	},
+	save:function(){
+		var val= this.refs.newText.value;
+		console.log("New TExt " + val); 
+	this.setState({editing:false});
+	},
+	renderNormal:function(){
+	return(<div> 
+			<div>{this.props.children}</div>
+			<button onClick={this.edit}>Edit</button>
+			<button onClick={this.remove}>Remove</button></div>);
+	},
+
+
+ renderForm:function(){
+	return(<div> 
+			<textarea ref= "newText" defaultValue={this.props.children}></textarea>	
+			<button onClick={this.save}>save</button></div>);
+	},
+	
+render:function(){
+	if (this.state.editing) {
+	return this.renderForm();
+	}
+	else {
+	return this.renderNormal();
+	}
+	
+	},
+	
+});
+	var Borad = React.createClass({
+		getInitialState:function() {
+			return{
+				comments:[
+							'hai',
+							'how are you',
+							'how is your work'
+							]
+			}
+			
+		},
+		render:function(){
+			return(
+				<div> 
+				{ this.this.state.comments.map(function(text,i){
+					return(<Comment key={i}>{text}</Comment>);
+				})
+			}
+
+					</div>
+		}
+	});
+
+ var Main = React.createClass({
+	render:function(){
+		return(<div><Comment>partha</Comment>
+	<Comment>sarathi</Comment>
+	<Comment>kumar</Comment>
+	<Borad/></div>)
+	},
+});
+
+	ReactDOM.render(<Main/>,document.getElementById('container'));
+
+</script>
+</body>
+</html>
+

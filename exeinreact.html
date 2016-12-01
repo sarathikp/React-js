@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>exe1</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        var Text = React.createClass({ getInitialState:function(){ return{count:0} },
+         handleClick:function(){ this.setState ({count:this.state.count+1}); },
+          render:function() { return(
+        <div>
+            <button onClick={this.handleClick}>{this.state.count}</button>
+        </div>)}, }); var Main = React.createClass({ render:function(){ return(
+        <div>
+            <Text/>
+        </div>) }, }); ReactDOM.render(
+        <Main/>,document.getElementById('root'));
+    </script>
+</body>
+
+</html>
+this.setState({count:this.state.count+2});

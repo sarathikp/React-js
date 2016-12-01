@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+    <title>exe1</title>
+</head>
+<style type="text/css">
+	.sub{
+		background: green;
+		color: red;
+		padding: 25px;
+
+	}
+	.sub input:hover{
+		padding-left: 20px;
+		margin-left: 10px;
+		width: 100px;
+		height: 50px;
+		display: inline-block;
+		vertical-align: middle;
+		transform: translateZ(0);
+		backface-visibility: hidden;
+		transform-origin: 100% 100%;
+	}
+	.main{
+		text-align: center;
+		color: #bb2052;
+	}
+	h1{
+		background: #AA4;
+		text-align: left;
+	}
+	h2{
+		background: #dd4;
+		text-align: right;
+	}
+	span{
+		font-size: 20px;
+		font-weight: 900;
+		font-family: sans-serif;
+	}
+	fieldset{
+		border:10px solid #888888;
+	}
+	fieldset:hover{
+		border: 5px dotted #0989A6;
+		border-radius: 5px;
+		border-bottom-right-radius: 60px;
+		border-top-right-radius: 60px;
+	}
+	.sub:hover{
+		background:#0989A6;
+		border-radius: 5px;
+		border-bottom-right-radius: 60px;
+		border-top-right-radius: 60px;
+	}
+	.sub input:hover{
+		border-bottom-right-radius: 60px;
+		border-top-left-radius: 60px;			
+		border-color: red;
+		background: white;
+		border: 5px dotted
+		 red;
+		}
+	
+</style>
+<body>
+    <div id="example"></div>
+								    <script type="text/babel">
+								        ReactDOM.render(
+								        <div className="main">
+								        <h1>Hello, world!</h1> 
+								        <h2>skngnsKNgknn</h2>
+								        <span>nsdgngkjsngnsn</span>
+								        <p>kdlglsn</p>
+								        <article>kndkgnsndlnkl</article>
+								        <fieldset >
+								        <div>
+								        	<form className="sub">
+								        		<input type="submit" name="submit"/>
+								  				<input className="reset" type="reset" name="reset"/>
+
+								        	</form>
+								        </div>
+								        </fieldset>
+								        </div>, document.getElementById('example') );
+								    </script>
+</body>
+
+</html>

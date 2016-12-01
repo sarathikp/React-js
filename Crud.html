@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Crud</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+    <style type="text/css">
+    .Heading {
+        color: green;
+        margin-left: 17em;
+        font-size: 35px;
+    }
+    
+    .Border {
+        border: 5px double green;
+        width: 350px;
+        margin-left: 30em;
+        padding-top: 30px;
+        height: 270px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    hr {
+     /*   border: 1px dotted green;*/
+    }
+    
+    .Name {
+        margin-left: 62px;
+        margin-bottom: 5px;
+        padding: 5px;
+        padding-right: 31px;
+        outline: none;
+    }
+    
+    .Fathername {
+        margin-left: 20px;
+        margin-bottom: 5px;
+        padding: 5px;
+        padding-right: 31px;
+        outline: none;
+    }
+    
+    .Address {
+        margin-left: 49px;
+        margin-bottom: 5px;
+        padding: 5px;
+        padding-right: 31px;
+        outline: none;
+    }
+    
+    .Dob {
+        margin-left: 74px;
+        margin-bottom: 5px;
+        outline: none;
+    }
+    
+    .Button {
+        float: left;
+        width: 80px;
+        height: 30px;
+        margin-left: 65px;
+    }
+    
+    .Bordercolor:hover {
+        border: 2px solid green;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        var Form = React.createClass({ 
+        getInitialState:function(){
+        return{name:''}
+        },
+		handleInputChange:function(e){	
+		
+		this.setState({name:e.traget.value});
+		},
+        render:function(){ return(
+        <div>
+            <label>
+                <form>{this.props.name}
+                    <input {...this.props} name={this.state.name} onChange={this.handleInputChange.bind(null, this.props.name)}/>
+                    <hr/>
+                </form>
+            </label>
+        </div>) } });
+
+         var Button = React.createClass({ 
+         getInitialState:function(){
+         return{value:''}
+         },
+			btn:function(value){
+			if(value === 'submit') {
+			alert(value)
+			}
+			else {
+			alert(value)
+			}
+			
+			
+			},
+
+         render:function(){ 
+			
+
+         return(
+        <div>
+            <label>
+                <input {...this.props} onClick={this.btn.bind(null, this.props.value)} />
+            </label>
+        </div>) } }); 
+
+        var Main = React.createClass({ render:function(){ return(
+        <div>
+            <div className="Heading">Form</div>
+            <div className="Border">
+                <Form type="text" defaultValue="" name="Name" placeholder="Name" className="Name Bordercolor" />
+                <Form type="text" defaultValue="" name="Father name" placeholder="Father name" className="Fathername Bordercolor" />
+                <Form type="text" defaultValue="" name="Address" placeholder="Address"className="Address Bordercolor" />
+                <Form type="date" defaultValue="" name="Dob" className="Dob Bordercolor" />
+                <Button type="submit" value="submit" className="Button" />
+                <Button type="button" value="cancel" className="Button" />
+            </div>
+        </div>) } });ReactDOM.render(
+        <Main/>, document.getElementById('app'))
+    </script>
+</body>
+
+</html>

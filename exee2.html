@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>exe2</title>
+	<script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+	var Btn = React.createClass({
+		localHandleClick:function(){
+			this.props.localHandleClick(this.props.increment);
+		},
+
+	render:function(){
+	return(<button onClick={this.localHandleClick}>+{this.props.increment}</button>)
+	},
+	});
+
+	var Result = React.createClass({
+	render:function(){
+	return(<div>{this.props.localCounter}</div>)
+	},
+	});
+
+	var Main = React.createClass({
+	getInitialState:function(){
+	return{counter:0};
+	},
+	handleClick:function(increment){
+	this.setState({counter:this.state.counter+increment});
+	},
+	render:function(){
+	return(<div><Btn localHandleClick={this.handleClick} increment={1}/>
+		<Btn localHandleClick={this.handleClick} increment={5}/>
+		<Btn localHandleClick={this.handleClick} increment={10}/>
+		<Btn localHandleClick={this.handleClick} increment={50}/>
+	<Result localCounter={this.state.counter} />
+	</div>)
+	},
+	});
+
+	ReactDOM.render(<Main/>,document.getElementById('root'))
+</script>
+
+</body>
+</html>

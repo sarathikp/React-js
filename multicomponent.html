@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+    <style type="text/css">
+
+    </style>
+</head>
+
+<body>
+    <div id="example5"></div>
+    <script type="text/babel">
+      
+
+
+
+        var Text = React.createClass({ render:function(){ return (
+        <div>
+            <p>Hi This is multipcomponent</p>
+            <div>
+                <div></div>
+            </div>
+            <h3>Hi this example for component</h3>
+        </div>); } }); 
+
+
+
+
+        var Header = React.createClass({ render:function(){ return(
+        <div>
+            <h1>hi</h1>
+            <h2>partha</h2>
+            <form>
+                <input type="submit" name="" value="" />
+                <input className="text" type="text" name="" />
+            </form>
+        </div>); } });
+
+            var Common = React.createClass({
+            render:function(){
+            return(
+            );
+            }
+            });
+
+
+         ReactDOM.render(
+        <div>
+            <Text/>
+            <Header/>
+        </div>, document.getElementById('example5'));
+    </script>
+</body>
+
+</html>

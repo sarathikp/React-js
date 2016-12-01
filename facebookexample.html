@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>facebook example</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+</head>
+<body>
+    <div id="hello"></div>
+    <script type="text/babel">
+        class Helloworld extends React.Component{ render(){ return(
+        <p>Hello,
+            <input type="text" placeholder="Your Name Here" name="" /> Its {this.props.date.toTimeString()}
+        </p>
+        ); } } function tick(){ ReactDOM.render(
+        <Helloworld date={new Date()}/>,document.getElementById('hello')); } setInterval(tick,1000);
+    </script>
+</body>
+
+</html>

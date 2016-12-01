@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>typing</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+</head>
+<style type="text/css">
+.border {
+    border: 2px solid grey;
+    height: 200px;
+}
+</style>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        var Main = React.createClass({ 
+        	getInitialState:function(){
+        	 return{ text:'hello' }
+        	  }, 
+        	  render:function(){ 
+        	  	return(
+        <div>
+            <h1>{this.state.text}</h1>
+            <form>
+                <textarea className="border" type='text' onChange={this.changeText} value={this.state.text}/>
+                <button>Submit</button>
+            </form>
+        </div>) 
+        	  },
+
+        	   changeText:function(e){ 
+        	   	this.setState({text:e.target.value}); 
+        	   },
+        	    });
+
+
+
+        ReactDOM.render(
+        <Main/>,document.getElementById('root'));
+    </script>
+</body>
+
+</html>

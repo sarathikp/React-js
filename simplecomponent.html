@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/bable">
+	var Form = React.createClass({
+	render:function(){
+	return(<div>
+		<form>
+			<input type="text" name="name">
+		</form>
+	</div>)
+	}
+	});
+	var Main = React.createClass({
+	render:function(){
+	return(<div><Form/></div>)
+	}
+	});
+</script>
+</body>
+</html>

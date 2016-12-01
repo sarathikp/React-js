@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>states</title>
+	<script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+	</head>
+<body>
+<div id="container"></div>
+
+<script type="text/babel">
+	 
+	 var CheckBox = React.createClass({
+	 
+		getInitialState:function(){
+			return{checked:true}
+		
+		},
+
+
+		handleChecked:function(){
+		this.setState({checked:!this.state.checked})
+		},
+
+		 
+	 render:function(){
+			
+			var msg;
+			if(this.state.checked){
+			msg='checked'
+			}else{
+			msg='unchecked'
+			}
+
+	 return(
+		
+		<div>
+			<input type="checkbox" onChange={this.handleChecked}defaultChecked={this.state.checked}/>
+			<h2>checkbox is {msg}</h2>
+		</div>
+	 );
+	 }
+	 });ReactDOM.render(<CheckBox/>,document.getElementById('container'));
+
+
+</script>
+
+</body>
+</html>

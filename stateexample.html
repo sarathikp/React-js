@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>State using value and radio button </title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        var RadioButton = React.createClass({
+         getInitialState:function(){
+          return { value: "male"} 
+          },
+          handleChecked1:function(){
+           this.setState({value:"male"}) 
+           },
+            handleChecked2:function(){
+            this.setState({value:"female"})
+             }, 
+             render:function(){
+           return(
+        <div>
+            <input type="radio" name="gender" onChange={this.handleChecked1} defaultChecked/>
+            <input type="radio" name="gender" onChange={this.handleChecked2}/>
+            <h3>This is {this.state.value}</h3>
+        </div>) 
+        }
+        })
+        ;ReactDOM.render(<RadioButton/>,document.getElementById('container'));
+    </script>
+</body>
+
+</html>
+<!-- var msg2;
+		if(this.state.checked2){
+		msg2 = 'checked'
+		}else{
+		msg2 = 'unchecked'
+		} -->
+<!-- <h3>This is {msg2}</h3> -->
